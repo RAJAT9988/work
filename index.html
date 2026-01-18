@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeCraft | Professional Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        /* Video styling */
+video {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+/* Video loading indicator */
+#video-loading {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.video-loaded #video-loading {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Smooth video transitions */
+video {
+    transition: opacity 0.3s ease;
+}
+
+/* Project card hover effect (optional - subtle) */
+.project-card:hover video {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid #fff;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-indigo-600">ResumeCraft</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-700 hover:text-indigo-600 transition">About</a>
+                    <a href="#skills" class="text-gray-700 hover:text-indigo-600 transition">Skills</a>
+                    <a href="#experience" class="text-gray-700 hover:text-indigo-600 transition">Experience</a>
+                    <a href="#projects" class="text-gray-700 hover:text-indigo-600 transition">Projects</a>
+                    <a href="#contact" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-700">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4 px-4 shadow-md">
+            <a href="#about" class="block py-2 text-gray-700 hover:text-indigo-600">About</a>
+            <a href="#skills" class="block py-2 text-gray-700 hover:text-indigo-600">Skills</a>
+            <a href="#experience" class="block py-2 text-gray-700 hover:text-indigo-600">Experience</a>
+            <a href="#projects" class="block py-2 text-gray-700 hover:text-indigo-600">Projects</a>
+            <a href="#contact" class="block mt-2 bg-indigo-600 text-white px-4 py-2 rounded-md text-center hover:bg-indigo-700">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-yellow-300">RAJAT KUCHARA</span></h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Professional <span class="text-yellow-300">FULL STACK DEVELOPER</span></h2>
+                <p class="text-lg mb-8 max-w-lg">I create amazing digital experiences with a focus on quality and performance. Let's build something great together!</p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-white text-indigo-600 px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition">Hire Me</a>
+                    <a href="#projects" class="border-2 border-white text-white px-6 py-3 rounded-md font-medium hover:bg-white hover:text-indigo-600 transition">View Work</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <img src="/public/WhatsApp Image 2026-01-18 at 3.58.52 PM.jpeg" alt="Profile Photo" class="rounded-full w-64 h-64 object-cover border-4 border-white shadow-xl">
+                    <div class="absolute -bottom-4 -right-4 bg-yellow-400 text-gray-900 px-4 py-2 rounded-full font-bold shadow-lg">
+                        Available
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">About <span class="text-indigo-600">Me</span></h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <img src="/public/WhatsApp Image 2026-01-05 at 12.34.18 AM.jpeg" alt="About Photo" class="rounded-lg shadow-lg w-full max-w-xs">
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-semibold mb-4">Who am I?</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        I'm a passionate Software Developer with expertise in modern web technologies, specializing in creating responsive, user-friendly applications with clean code and efficient architecture.
+Currently working as a Software Developer at Atomo Innovation PVT LTD, where I'm gaining hands-on experience with SvelteKit for both frontend and backend development.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div>
+                            <p class="font-medium">Name:</p>
+                            <p class="text-gray-600">RAJAT KUCHARA</p>
+                        </div>
+                        <div>
+                            <p class="font-medium">Email:</p>
+                            <p class="text-gray-600">tirthkuchara@gmail.com</p>
+                        </div>
+                        <div>
+                            <p class="font-medium">Phone:</p>
+                            <p class="text-gray-600">+91 99786 31923</p>
+                        </div>
+                        <div>
+                            <p class="font-medium">Location:</p>
+                            <p class="text-gray-600">Gandhinagar, India</p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-indigo-600 hover:text-white transition">
+                            <i data-feather="github"></i>
+                        </a>
+                        <a href="#" class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-indigo-600 hover:text-white transition">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                        <a href="#" class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-indigo-600 hover:text-white transition">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-indigo-600 hover:text-white transition">
+                            <i data-feather="instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">My <span class="text-indigo-600">Skills</span></h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- HTML, CSS, JavaScript -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <div class="text-indigo-600 mb-4">
+                        <i data-feather="code" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">HTML, CSS, JavaScript</h3>
+                    <p class="text-gray-600">Core web technologies for building responsive websites</p>
+                </div>
+                
+                <!-- React.js, Node.js -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <div class="text-indigo-600 mb-4">
+                        <i data-feather="cpu" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">React.js & Node.js</h3>
+                    <p class="text-gray-600">Full-stack JavaScript development</p>
+                </div>
+                
+                <!-- SvelteKit, Tailwind CSS -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <div class="text-indigo-600 mb-4">
+                        <i data-feather="wind" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">SvelteKit & Tailwind</h3>
+                    <p class="text-gray-600">Modern frameworks and utility-first CSS</p>
+                </div>
+                
+                <!-- MySQL, MongoDB -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <div class="text-indigo-600 mb-4">
+                        <i data-feather="database" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Databases</h3>
+                    <p class="text-gray-600">MySQL & SQLite</p>
+                </div>
+                
+                <!-- Figma -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <div class="text-indigo-600 mb-4">
+                        <i data-feather="pen-tool" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">UI/UX Design</h3>
+                    <p class="text-gray-600">Figma (Learning)</p>
+                </div>
+                
+                <!-- Blockchain (DePin) -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <div class="text-indigo-600 mb-4">
+                        <i data-feather="link" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Blockchain</h3>
+                    <p class="text-gray-600">DePin (Decentralized Physical Infrastructure)</p>
+                </div>
+                
+                <!-- Streamlit -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <div class="text-indigo-600 mb-4">
+                        <i data-feather="bar-chart-2" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Streamlit</h3>
+                    <p class="text-gray-600">Data app development with Python</p>
+                </div>
+                
+                <!-- Django -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <div class="text-indigo-600 mb-4">
+                        <i data-feather="server" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Django</h3>
+                    <p class="text-gray-600">Python web framework for backend development</p>
+                </div>
+                
+                <!-- Next.js -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <div class="text-indigo-600 mb-4">
+                        <i data-feather="arrow-right" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Next.js</h3>
+                    <p class="text-gray-600">React framework for production</p>
+                </div>
+                
+                <!-- Three.js -->
+                <div class="skill-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <div class="text-indigo-600 mb-4">
+                        <i data-feather="box" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Three.js</h3>
+                    <p class="text-gray-600">3D graphics in the browser</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Work <span class="text-indigo-600">Experience</span></h2>
+            <div class="relative">
+                <!-- Timeline -->
+                <div class="border-l-2 border-indigo-200 pl-8 space-y-12">
+                    <!-- Experience 1 -->
+                    <div class="timeline-item relative">
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-bold text-indigo-600">Senior software developer</h3>
+                                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">2025 - Present</span>
+                            </div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Atomo Innovation PVT. LTD.</h4>
+                            <p class="text-gray-600 mb-4">
+                               Led a development team to design and deliver scalable client solutions using Node.js, React.js, and Next.js.
+                            </p>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                                <li>Developed full-stack web applications with REST APIs, ensuring secure and efficient backend services. Built interactive 3D web experiences using Three.js, enhancing user engagement and UI interactivity.</li>
+                                <li>Designed and maintained backend systems using Python (Django) for data-driven applications. Created data visualization dashboards and internal tools using Streamlit for rapid prototyping and analytics.</li>
+                                <li>Managed relational databases including MySQL and SQLite, optimizing queries to improve application performance.</li>
+                                <li>Mentored junior developers and interns through code reviews, technical guidance, and best coding practices.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 2 -->
+                    <div class="timeline-item relative">
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-bold text-indigo-600">[Your Role]</h3>
+                                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">2017 - 2020</span>
+                            </div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Another Company</h4>
+                            <p class="text-gray-600 mb-4">
+                                Contributed to multiple projects as a full-stack developer. 
+                                Collaborated with designers to create user-friendly interfaces.
+                            </p>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                                <li>Built RESTful APIs</li>
+                                <li>Implemented responsive designs</li>
+                                <li>Conducted code reviews</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 3 -->
+                    <div class="timeline-item relative">
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-bold text-indigo-600">Junior [Your Role]</h3>
+                                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">2015 - 2017</span>
+                            </div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Startup Company</h4>
+                            <p class="text-gray-600 mb-4">
+                                Started my career as a junior developer, learning the ropes of professional software development.
+                            </p>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                                <li>Assisted in development tasks</li>
+                                <li>Fixed bugs and issues</li>
+                                <li>Learned best practices</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Featured <span class="text-indigo-600">Projects</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 - Blog Publisher Platform -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden relative">
+                    <div class="relative h-48 overflow-hidden bg-black">
+    <!-- Video Player - Always visible -->
+    <video 
+        class="w-full h-full object-cover"
+        autoplay
+        muted
+        playsinline
+        loop
+        preload="auto"
+        poster="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=872&q=80"
+    >
+        <source src="/public/0_Abstract_Geometric_3840x2160.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    
+    <!-- Optional: Minimal play indicator (hidden after video loads) -->
+    <div id="video-loading" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-500">
+        <div class="text-white">
+            <i data-feather="loader" class="w-8 h-8 animate-spin"></i>
+        </div>
+    </div>
+</div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Blog Publisher Platform</h3>
+                        <p class="text-gray-600 mb-4">A blog publishing platform built with Noble.js where users can create, publish, and manage blog posts with real-time updates.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">Noble.js</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">HTML</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">CSS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 - Real-time Chat Platform -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Real-time Chat Platform" class="w-full h-48 object-cover">
+                        <div class="project-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex items-center justify-center opacity-0 transition duration-300">
+                            <a href="#" class="text-white border-2 border-white rounded-full p-3 hover:bg-white hover:text-indigo-600 transition">
+                                <i data-feather="play" class="w-6 h-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Real-time Chat Platform</h3>
+                        <p class="text-gray-600 mb-4">Next.js-based chat application with meeting codes, real-time messaging and video capabilities.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">Next.js</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">Real-time</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">Video Chat</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 - Task Management App -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Task Management App" class="w-full h-48 object-cover">
+                        <div class="project-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex items-center justify-center opacity-0 transition duration-300">
+                            <a href="#" class="text-white border-2 border-white rounded-full p-3 hover:bg-white hover:text-indigo-600 transition">
+                                <i data-feather="play" class="w-6 h-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Task Management & Time Tracking App</h3>
+                        <p class="text-gray-600 mb-4">React.js app with time tracking, PDF export, and WhatsApp sharing capabilities.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">React.js</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">CSS</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">PDF Export</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 - RTSP Camera UI -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="RTSP Camera UI" class="w-full h-48 object-cover">
+                        <div class="project-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex items-center justify-center opacity-0 transition duration-300">
+                            <a href="#" class="text-white border-2 border-white rounded-full p-3 hover:bg-white hover:text-indigo-600 transition">
+                                <i data-feather="play" class="w-6 h-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">RTSP Camera UI</h3>
+                        <p class="text-gray-600 mb-4">Web interface for RTSP camera streams with real-time controls and multi-camera support.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">RTSP</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">Real-time</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">Web Interface</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 - Smart Device Dashboard -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=874&q=80" alt="Smart Device Dashboard" class="w-full h-48 object-cover">
+                        <div class="project-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex items-center justify-center opacity-0 transition duration-300">
+                            <a href="#" class="text-white border-2 border-white rounded-full p-3 hover:bg-white hover:text-indigo-600 transition">
+                                <i data-feather="play" class="w-6 h-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Smart Device Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Dashboard for controlling and monitoring smart devices connected to Atomo's board.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">JavaScript</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">Dashboard</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">IoT</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 - RTSP Camera with AI -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=887&q=80" alt="RTSP Camera with AI" class="w-full h-48 object-cover">
+                        <div class="project-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex items-center justify-center opacity-0 transition duration-300">
+                            <a href="#" class="text-white border-2 border-white rounded-full p-3 hover:bg-white hover:text-indigo-600 transition">
+                                <i data-feather="play" class="w-6 h-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">RTSP Camera Streaming with AI Detection</h3>
+                        <p class="text-gray-600 mb-4">Camera system supporting 100+ RTSP streams with AI detection for safety alerts.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">Python</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">RTSP</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">AI Detection</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 7 - Social Media Platform -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Social Media Platform" class="w-full h-48 object-cover">
+                        <div class="project-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex items-center justify-center opacity-0 transition duration-300">
+                            <a href="#" class="text-white border-2 border-white rounded-full p-3 hover:bg-white hover:text-indigo-600 transition">
+                                <i data-feather="play" class="w-6 h-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Social Media Platform</h3>
+                        <p class="text-gray-600 mb-4">Full-featured social media application with posting, following, liking, and real-time chat.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">Django</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">Python</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">Real-time Chat</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 8 - Government Library System -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1290&q=80" alt="Library System" class="w-full h-48 object-cover">
+                        <div class="project-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex items-center justify-center opacity-0 transition duration-300">
+                            <a href="#" class="text-white border-2 border-white rounded-full p-3 hover:bg-white hover:text-indigo-600 transition">
+                                <i data-feather="play" class="w-6 h-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Government Library System</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive library management system for DSP Office with secure authentication.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">HTML/CSS</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">JavaScript</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 9 - Atomo Innovation Website -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Atomo Website" class="w-full h-48 object-cover">
+                        <div class="project-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex items-center justify-center opacity-0 transition duration-300">
+                            <a href="#" class="text-white border-2 border-white rounded-full p-3 hover:bg-white hover:text-indigo-600 transition">
+                                <i data-feather="play" class="w-6 h-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Atomo Innovation Website</h3>
+                        <p class="text-gray-600 mb-4">Official website showcasing innovative devices like Electron, Proton, and Neutron.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">HTML</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">CSS</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 10 - DePin Blockchain Project -->
+                <div class="project-card bg-white rounded-lg shadow-md overflow-hidden relative">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1620336655055-bd87c5d1d73f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Blockchain Project" class="w-full h-48 object-cover">
+                        <div class="project-overlay absolute inset-0 bg-indigo-600 bg-opacity-90 flex items-center justify-center opacity-0 transition duration-300">
+                            <a href="#" class="text-white border-2 border-white rounded-full p-3 hover:bg-white hover:text-indigo-600 transition">
+                                <i data-feather="play" class="w-6 h-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">DePin Blockchain Project</h3>
+                        <p class="text-gray-600 mb-4">Decentralized application with MetaMate integration for blockchain transactions.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">SvelteKit</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">Blockchain</span>
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs">MetaMate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-indigo-600 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12">Get In <span class="text-yellow-300">Touch</span></h2>
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                    <p class="mb-8">Feel free to reach out to me for any questions or opportunities. I'll get back to you as soon as possible!</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="text-yellow-300 mr-4 mt-1">
+                                <i data-feather="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <p>tirthkuchara@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-yellow-300 mr-4 mt-1">
+                                <i data-feather="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Phone</h4>
+                                <p>+91 99786 31923</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-yellow-300 mr-4 mt-1">
+                                <i data-feather="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Location</h4>
+                                <p>Gandhinagar, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 flex space-x-4">
+                        <a href="#" class="bg-white text-indigo-600 p-3 rounded-full hover:bg-yellow-300 hover:text-indigo-600 transition">
+                            <i data-feather="github"></i>
+                        </a>
+                        <a href="#" class="bg-white text-indigo-600 p-3 rounded-full hover:bg-yellow-300 hover:text-indigo-600 transition">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                        <a href="#" class="bg-white text-indigo-600 p-3 rounded-full hover:bg-yellow-300 hover:text-indigo-600 transition">
+                            <i data-feather="twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block mb-2 font-medium">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-md bg-indigo-700 bg-opacity-30 border border-indigo-400 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:border-transparent placeholder-indigo-200" placeholder="John Doe">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block mb-2 font-medium">Your Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-md bg-indigo-700 bg-opacity-30 border border-indigo-400 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:border-transparent placeholder-indigo-200" placeholder="john@example.com">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block mb-2 font-medium">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 rounded-md bg-indigo-700 bg-opacity-30 border border-indigo-400 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:border-transparent placeholder-indigo-200" placeholder="Project Inquiry">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block mb-2 font-medium">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-md bg-indigo-700 bg-opacity-30 border border-indigo-400 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:border-transparent placeholder-indigo-200" placeholder="Your message here..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-yellow-300 text-indigo-800 px-6 py-3 rounded-md font-bold hover:bg-yellow-400 transition">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-xl font-bold text-indigo-400">ResumeCraft</span>
+                    <p class="mt-2 text-gray-400">Crafting professional digital identities.</p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-6 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="github"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="instagram"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm">© 2023 ResumeCraft. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+                // Projects Show More/Less functionality
+        const showMoreBtn = document.getElementById('show-more-btn');
+        const moreProjects = document.getElementById('more-projects');
+        const showMoreIcon = document.getElementById('show-more-icon');
+        
+        if (showMoreBtn && moreProjects) {
+            showMoreBtn.addEventListener('click', function() {
+                const isHidden = moreProjects.classList.contains('hidden');
+                
+                if (isHidden) {
+                    // Show more projects
+                    moreProjects.classList.remove('hidden');
+                    showMoreBtn.innerHTML = 'Show Less Projects';
+                    feather.icons['chevron-up'].replaceFeather(showMoreIcon);
+                } else {
+                    // Hide projects
+                    moreProjects.classList.add('hidden');
+                    showMoreBtn.innerHTML = 'Show More Projects';
+                    feather.icons['chevron-down'].replaceFeather(showMoreIcon);
+                }
+                
+                // Update the icon
+                feather.replace();
+            });
+        }
+        // Mobile menu toggle
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            
+            // Change icon based on menu state
+            const icon = this.querySelector('svg');
+            if (menu.classList.contains('hidden')) {
+                feather.icons.menu.replaceFeather(icon);
+            } else {
+                feather.icons.x.replaceFeather(icon);
+            }
+        });
+
+        // Replace all feather icons
+        feather.replace();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        const menuBtn = document.getElementById('menu-btn');
+                        feather.icons.menu.replaceFeather(menuBtn.querySelector('svg'));
+                    }
+                }
+            });
+        });
+        // Video loading and playback
+document.querySelectorAll('video').forEach(video => {
+    const container = video.closest('.relative');
+    const loadingIndicator = container.querySelector('#video-loading');
+    
+    // Hide loading indicator when video can play
+    video.addEventListener('canplay', function() {
+        if (loadingIndicator) {
+            container.classList.add('video-loaded');
+        }
+    });
+    
+    // Try to play video (with error handling)
+    video.play().catch(error => {
+        console.log("Video autoplay failed:", error);
+        if (loadingIndicator) {
+            loadingIndicator.innerHTML = `
+                <div class="text-center p-4">
+                    <div class="text-white mb-2">
+                        <i data-feather="play-circle" class="w-8 h-8"></i>
+                    </div>
+                    <p class="text-white text-sm">Click to play video</p>
+                </div>
+            `;
+            feather.replace();
+            
+            // Make it clickable to play
+            loadingIndicator.style.cursor = 'pointer';
+            loadingIndicator.addEventListener('click', function() {
+                video.play();
+                this.style.opacity = '0';
+            });
+        }
+    });
+    
+    // Loop the video
+    video.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    });
+});
+    </script>
+
+    
+</body>
+</html>

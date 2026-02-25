@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-    <meta name="theme-color" content="#667eea">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RAJAT KUCHARA | Professional Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -63,34 +62,10 @@
         transform: translateY(-5px);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
-        /* Video styling - ensure video shows on top and scales on Android */
-        .project-video-container video {
-            position: relative;
-            z-index: 1;
-            min-width: 100%;
-            min-height: 100%;
-            object-fit: cover;
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-        }
-        .project-video-container .video-placeholder {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-        }
+        /* Video styling */
         video {
             min-width: 100%;
             min-height: 100%;
-        }
-        /* Android / mobile fixes */
-        html {
-            -webkit-text-size-adjust: 100%;
-            overflow-x: hidden;
-        }
-        body {
-            overflow-x: hidden;
-            -webkit-overflow-scrolling: touch;
         }
 
         /* Video loading indicator */
@@ -526,11 +501,11 @@
                 <div class="grid lg:grid-cols-2 gap-0">
                     <div class="relative bg-white lg:order-1 order-2">
                         <div class="aspect-video w-full project-video-container">
-                            <video id="video-1" class="w-full h-full " autoplay muted loop playsinline preload="auto">
+                            <video id="video-0" class="w-full h-full " autoplay muted loop playsinline preload="auto">
                                 <source src="/public/main_dashboard.mp4" type="video/mp4">
                                 Your browser does not support video.
                             </video>
-                            <div class="video-placeholder w-full h-full bg-gradient-to-br from-rose-500 to-amber-600 flex items-center justify-center">
+                            <div class="w-full h-full bg-gradient-to-br from-rose-500 to-amber-600 flex items-center justify-center">
                                 <div class="text-center text-white">
                                     <i data-feather="bar-chart-2" class="w-20 h-20 mx-auto mb-4"></i>
                                     <p class="text-xl font-semibold">Male & Female Detection Demo</p>
@@ -557,7 +532,7 @@
                     <!-- Large Video Section -->
                     <div class="relative bg-white lg:order-1 order-2">
                         <div class="aspect-video w-full project-video-container">
-                            <video id="video-2" class="w-full h-full " autoplay muted loop playsinline preload="auto">
+                            <video id="video-0" class="w-full h-full " autoplay muted loop playsinline preload="auto">
                                 <source src="/public/final_atomo.mp4" type="video/mp4">
                                 Your browser does not support video.
                             </video>
@@ -591,11 +566,11 @@
                 <div class="grid lg:grid-cols-2 gap-0">
                     <div class="relative bg-white lg:order-1 order-2">
                         <div class="aspect-video w-full project-video-container">
-                            <video id="video-3" class="w-full h-full " autoplay muted loop playsinline preload="auto">
+                            <video id="video-0" class="w-full h-full " autoplay muted loop playsinline preload="auto">
                                 <source src="/public/digital_twin.mp4" type="video/mp4">
                                 Your browser does not support video.
                             </video>
-                            <div class="video-placeholder w-full h-full bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
+                            <div class="w-full h-full bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
                                 <div class="text-center text-white">
                                     <i data-feather="video" class="w-20 h-20 mx-auto mb-4"></i>
                                     <p class="text-xl font-semibold">RTSP Camera Demo</p>
@@ -634,11 +609,11 @@
                 <div class="grid lg:grid-cols-2 gap-0">
                     <div class="relative bg-white lg:order-1 order-2">
                         <div class="aspect-video w-full project-video-container">
-                            <video id="video-4" class="w-full h-full " autoplay muted loop playsinline preload="auto">
+                            <video id="video-0" class="w-full h-full " autoplay muted loop playsinline preload="auto">
                                 <source src="/public/pdeu.mp4" type="video/mp4">
                                 Your browser does not support video.
                             </video>
-                            <div class="video-placeholder w-full h-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                            <div class="w-full h-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
                                 <div class="text-center text-white">
                                     <i data-feather="check-square" class="w-20 h-20 mx-auto mb-4"></i>
                                     <p class="text-xl font-semibold">Task Management Demo</p>
@@ -676,11 +651,11 @@
                 <div class="grid lg:grid-cols-2 gap-0">
                     <div class="relative bg-white lg:order-1 order-2">
                         <div class="aspect-video w-full project-video-container">
-                            <video id="video-5" class="w-full h-full " autoplay muted loop playsinline preload="auto">
+                            <video id="video-0" class="w-full h-full " autoplay muted loop playsinline preload="auto">
                                 <source src="/public/face_digital.mp4" type="video/mp4">
                                 Your browser does not support video.
                             </video>
-                            <div class="video-placeholder w-full h-full bg-gradient-to-br from-violet-500 to-fuchsia-600 flex items-center justify-center">
+                            <div class="w-full h-full bg-gradient-to-br from-violet-500 to-fuchsia-600 flex items-center justify-center">
                                 <div class="text-center text-white">
                                     <i data-feather="user" class="w-20 h-20 mx-auto mb-4"></i>
                                     <p class="text-xl font-semibold">Movement Twin Demo</p>
@@ -719,11 +694,11 @@
                 <div class="grid lg:grid-cols-2 gap-0">
                     <div class="relative bg-white lg:order-1 order-2">
                         <div class="aspect-video w-full project-video-container">
-                            <video id="video-6" class="w-full h-full " autoplay muted loop playsinline preload="auto">
+                            <video id="video-0" class="w-full h-full " autoplay muted loop playsinline preload="auto">
                                 <source src="/public/pethapur.mp4" type="video/mp4">
                                 Your browser does not support video.
                             </video>
-                            <div class="video-placeholder w-full h-full bg-gradient-to-br from-teal-500 to-indigo-600 flex items-center justify-center">
+                            <div class="w-full h-full bg-gradient-to-br from-teal-500 to-indigo-600 flex items-center justify-center">
                                 <div class="text-center text-white">
                                     <i data-feather="video" class="w-20 h-20 mx-auto mb-4"></i>
                                     <p class="text-xl font-semibold">Godown Digital Twin Demo</p>
@@ -749,11 +724,11 @@
                 <div class="grid lg:grid-cols-2 gap-0">
                     <div class="relative bg-white lg:order-1 order-2">
                         <div class="aspect-video w-full project-video-container">
-                            <video id="video-7" class="w-full h-full " autoplay muted loop playsinline preload="auto">
+                            <video id="video-0" class="w-full h-full " autoplay muted loop playsinline preload="auto">
                                 <source src="/public/new1234.mp4" type="video/mp4">
                                 Your browser does not support video.
                             </video>
-                            <div class="video-placeholder w-full h-full bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
+                            <div class="w-full h-full bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
                                 <div class="text-center text-white">
                                     <i data-feather="video" class="w-20 h-20 mx-auto mb-4"></i>
                                     <p class="text-xl font-semibold">RTSP Camera Demo</p>
@@ -1080,15 +1055,12 @@
         }
     }
 
-    // Auto-play videos and hide placeholder when video is ready (helps Android / last project)
+    // Auto-play videos
     document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.project-video-container video').forEach(video => {
-            var placeholder = video.nextElementSibling;
-            if (placeholder && placeholder.classList.contains('video-placeholder')) {
-                video.addEventListener('canplay', function() { placeholder.style.display = 'none'; });
-                video.addEventListener('loadeddata', function() { placeholder.style.display = 'none'; });
-            }
-            video.play().catch(function() {});
+        document.querySelectorAll('video').forEach(video => {
+            video.play().catch(error => {
+                console.log("Video autoplay prevented:", error);
+            });
         });
     });
 </script>
